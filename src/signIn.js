@@ -18,6 +18,8 @@ import axios from 'axios';
 import {setLocalStorage} from './Services';
 import Config from './config/webConfig.json';
 import CountryContext from './Context';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
+
 
 class SignIn extends Component {
 
@@ -37,6 +39,7 @@ class SignIn extends Component {
         
         this.state = {success: false, error:false, progress:false};
         console.log("[Sign In.js] inside constructor ....");
+        console.log("[Sign In.js] load props .... ", this.props);
     }
 
     componentWillMount(){
@@ -81,6 +84,7 @@ class SignIn extends Component {
            {config=><h1>bHola! {config.country}</h1>}
        </CountryContext.Consumer>
        <h1>{SignIn.header}</h1>
+       <div><Link to={this.props.match.path+"/client"}> Client Login </Link></div>
       { !(success && error && progress) && <ul className="formContainer">
             {/* {this.renderForm()} */}
             <Form formFields={this.formFields}  submitAction = {this.takeAction} that ={this} />

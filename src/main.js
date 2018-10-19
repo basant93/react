@@ -98,6 +98,7 @@ class Main extends Component {
 <Route path="/signIn" exact component={SignIn}/>
 <Route path="/signUp" exact component={SignUp}/>
 <Route path="/signUp"  render={() => <h1> Hello basant </h1>}/>
+{/* <Route path="/renderlist"  render={() => {this.state = this.state.list}}/> */}
 {/* <Route path="/renderlist" component={<HOCComponent  deleteList={this.deleteList}  that={this} list={this.state.list}/>}/> */}
 {/* <Route path="/" render={() => <h1> Hello  router load 2</h1>}/> */}
     <div>
