@@ -23,6 +23,7 @@ import RenderList from './RenderList';
 import HOC from './HOC';
 import CountryContext from './Context';
 import {BrowserRouter, Route} from 'react-router-dom';
+import Header from './Header';
 
 class Main extends Component {
 
@@ -93,6 +94,7 @@ class Main extends Component {
         
 <div>
 {/* <Route path="/" exact render={() => <h1> Hello  load 1</h1>}/> */}
+<Header />
 <Route path="/signIn" exact component={SignIn}/>
 <Route path="/signUp" component={SignUp}/>
 {/* <Route path="/" render={() => <h1> Hello  router load 2</h1>}/> */}

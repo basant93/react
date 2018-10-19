@@ -6,10 +6,14 @@ class Header extends Component{
         
         return(
 
+            <ul>
             <className>
-                <li><a href="/signIn"> signIn</a></li>
+                <li className="App-Ink"><a href="/signIn"> signIn</a></li>
                 <li><a href="/signUp"> signUp</a></li>
             </className>
+            </ul>
         );
     }
 }
+
+export default Header;
