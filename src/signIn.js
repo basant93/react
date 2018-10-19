@@ -18,7 +18,9 @@ import axios from 'axios';
 import {setLocalStorage} from './Services';
 import Config from './config/webConfig.json';
 import CountryContext from './Context';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Route, Link, NavLink} from 'react-router-dom';
+import UserDashboard from './UserDashboard';
+
 
 
 class SignIn extends Component {
@@ -52,7 +54,7 @@ class SignIn extends Component {
     }
 
     takeAction(obj){
-        obj.user_type = 'client';
+        obj.user_type = this.props.match.params.type;
         console.log(obj);
 
 
@@ -64,6 +66,7 @@ class SignIn extends Component {
             //localStorage.setItem("userToken",response.data.token);
             setLocalStorage("userToken", response.data.token)
             self.setState({progress:false, success:true})
+            console.log(self.props.history.push('../userdashboard'))
           })
           .catch(function (error) {
             console.log(error);
@@ -80,11 +83,13 @@ class SignIn extends Component {
     return (
 <div>
        <div className="signUp">
+       <Route path="userdashboard" component={UserDashboard} />
        <CountryContext.Consumer >
            {config=><h1>bHola! {config.country}</h1>}
        </CountryContext.Consumer>
        <h1>{SignIn.header}</h1>
-       <div><Link to={this.props.match.path+"/client"}> Client Login </Link></div>
+       <div> <Link to={this.props.match.path+"/client"}>Client Login 1</Link></div>
+       <div><Link to={this.props.match.path+"/"+this.props.match.params.type}> Client Login </Link></div>
       { !(success && error && progress) && <ul className="formContainer">
             {/* {this.renderForm()} */}
             <Form formFields={this.formFields}  submitAction = {this.takeAction} that ={this} />

@@ -24,6 +24,8 @@ import HOC from './HOC';
 import CountryContext from './Context';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Header from './Header';
+import Switch from 'react-router-dom/Switch';
+import UserDashboard from './UserDashboard';
 
 class Main extends Component {
 
@@ -89,16 +91,28 @@ class Main extends Component {
     //const RenderList = <RenderList deleteList={this.deleteList}  that={this} list={this.state.list}/>;
 
     const HOCComponent  = HOC(RenderList);
+    //will be state variable
+    let loggedInStatus = true;
     return (
         <BrowserRouter>
         
 <div>
 {/* <Route path="/" exact render={() => <h1> Hello  load 1</h1>}/> */}
 <Header />
-<Route path="/signIn" exact component={SignIn}/>
+<Switch>
+{ <Route path="/signIn" exact component={SignIn}/> }
+
+ 
+ 
+<Route path="/signIn/:type" exact component={SignIn}/>
 <Route path="/signUp" exact component={SignUp}/>
-<Route path="/signUp"  render={() => <h1> Hello basant </h1>}/>
-{/* <Route path="/renderlist"  render={() => {this.state = this.state.list}}/> */}
+<Route path="/userdashboard" exact component={loggedInStatus? UserDashboard : null}/>
+<Route path="/signUp" exact render={() => <h1> Hello basant </h1>}/>
+<Route path='/' render={() => <h1>Hello bro This is home page   </h1>} />
+
+<Route  render={() => <h1> Page not found   </h1>} />
+</Switch>
+ {/* <Route path="/renderlist"  render={() => <RenderList deleteList={this.deleteList}  that={this} list={this.state.list} /> */}
 {/* <Route path="/renderlist" component={<HOCComponent  deleteList={this.deleteList}  that={this} list={this.state.list}/>}/> */}
 {/* <Route path="/" render={() => <h1> Hello  router load 2</h1>}/> */}
     <div>
