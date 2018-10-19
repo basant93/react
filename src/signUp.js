@@ -41,6 +41,8 @@ class SignUp extends Component {
         this.state = {success: false, error:false, progress:false};
         console.log("[SignUp.js] inside constructor ....");
         this.refInp = React.createRef()
+        console.log("[SignUp.js]  load props .... ",this.props);
+
     }
 
     componentWillMount(){

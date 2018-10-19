@@ -96,7 +96,9 @@ class Main extends Component {
 {/* <Route path="/" exact render={() => <h1> Hello  load 1</h1>}/> */}
 <Header />
 <Route path="/signIn" exact component={SignIn}/>
-<Route path="/signUp" component={SignUp}/>
+<Route path="/signUp" exact component={SignUp}/>
+<Route path="/signUp"  render={() => <h1> Hello basant </h1>}/>
+{/* <Route path="/renderlist" component={<HOCComponent  deleteList={this.deleteList}  that={this} list={this.state.list}/>}/> */}
 {/* <Route path="/" render={() => <h1> Hello  router load 2</h1>}/> */}
     <div>
         <button onClick={this.changeAction.bind(this,0)}>Sign Up</button>
@@ -133,7 +135,8 @@ class Main extends Component {
 
 </div> */}
 {/* <RenderList deleteList={this.deleteList}  that={this} list={this.state.list}/> */}
-{<HOCComponent  deleteList={this.deleteList}  that={this} list={this.state.list}/>}
+
+{/*<HOCComponent  deleteList={this.deleteList}  that={this} list={this.state.list}/> */}
 
 
 

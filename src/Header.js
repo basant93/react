@@ -7,10 +7,11 @@ class Header extends Component{
         return(
 
             <ul>
-            <className>
+           
                 <li className="App-Ink"><a href="/signIn"> signIn</a></li>
                 <li><a href="/signUp"> signUp</a></li>
-            </className>
+                <li><a href="/renderlist"> Render List</a></li>
+           
             </ul>
         );
     }
