@@ -26,6 +26,13 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Header from './Header';
 import Switch from 'react-router-dom/Switch';
 import UserDashboard from './UserDashboard';
+import AsyncComponent from './HOC/AsyncComponent'
+
+
+const AsyncNewPost  = AsyncComponent(()=>{
+
+    return import('./signIn');
+}); 
 
 class Main extends Component {
 
@@ -100,7 +107,11 @@ class Main extends Component {
 {/* <Route path="/" exact render={() => <h1> Hello  load 1</h1>}/> */}
 <Header />
 <Switch>
-{ <Route path="/signIn" exact component={SignIn}/> }
+
+    { <Route path="/signIn" exact component={AsyncNewPost}/> }
+{/* <Route path="/signIn" exact component={SignIn}/> */ }
+
+
 
  
  
